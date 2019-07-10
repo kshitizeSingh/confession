@@ -1,0 +1,27 @@
+<!-- <p>confession-card works!</p> -->
+
+<!-- {{confessions| json}} -->
+
+
+
+
+<mdb-card *ngFor="let confession of confessions">
+    <!--Card image-->
+    <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
+    <!--Card content-->
+    <mdb-card-body>
+  
+      <!--Title-->
+      <mdb-card-title>
+        <h4>{{confession.user}}</h4>
+      </mdb-card-title>
+  
+      <!--Text-->
+      <mdb-card-text> 
+          {{confession.text}}
+      </mdb-card-text>
+<hr>
+      <div>likes:{{confession.likes.length}}</div>
+
+    </mdb-card-body>
+  </mdb-card>
