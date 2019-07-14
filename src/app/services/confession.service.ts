@@ -20,4 +20,12 @@ export class ConfessionService {
   getConfessionById(id) {
     return this.http.get(this.uri + '/getConfessionById/' + id);
   }
+
+  addComment(data) {
+    return this.http.post(this.uri + '/addComment', data);
+  }
+
+  like(data) {
+    return this.http.post(this.uri + '/like', data);
+  }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ConfessionService } from 'src/app/services/confession.service';
+import {Component, OnInit} from '@angular/core';
+import {ConfessionService} from 'src/app/services/confession.service';
 
 @Component({
   selector: 'app-confession-card',
@@ -7,21 +7,30 @@ import { ConfessionService } from 'src/app/services/confession.service';
   styleUrls: ['./confession-card.component.css']
 })
 export class ConfessionCardComponent implements OnInit {
-
-  confessions:  any[]
-  constructor( private confessionService:ConfessionService) { }
-
+  confessions: any[];
+  constructor(private confessionService: ConfessionService) {}
 
   ngOnInit() {
-    this.getAllConfession()
+    this.getAllConfession();
   }
-  getAllConfession(){
-    this.confessionService.getAllConfessions().subscribe(
-      confession=>{
-        this.confessions=confession
-        console.log(confession)
-      }
-    )
+  getAllConfession() {
+    this.confessionService.getAllConfessions().subscribe(confession => {
+      this.confessions = confession;
+      console.log(confession);
+    });
   }
 
+  like(confession) {
+    console.log(confession);
+    const likeRequest = {
+      id: confession._id,
+      user: 'lucky'
+    };
+    this.confessionService.like(likeRequest).subscribe(
+      liked => {
+        console.log(liked);
+      },
+      error => {}
+    );
+  }
 }

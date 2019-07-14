@@ -13,7 +13,9 @@
     </mdb-card-text>
     <hr />
     <div>
-      <img src="assets/like.jpg" class="like" />{{ confession.likes.length }}
+      <img src="assets/like.jpg" class="like" (click)="like()" />{{
+        confession.likes.length
+      }}
     </div>
     <hr />
     <div *ngFor="let comment of confession.comments" class="commentSection">
@@ -32,3 +34,7 @@
   </mdb-card-body>
 </mdb-card>
 <!-- {{ confession | json }} -->
+<section for="addComment" class="addCommentSection">
+  <textarea class="text" [(ngModel)]="newComment"></textarea
+  ><button class="button" (click)="addComment()">=></button>
+</section>

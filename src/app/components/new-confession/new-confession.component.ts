@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfessionService} from 'src/app/services/confession.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-confession',
@@ -7,7 +8,10 @@ import {ConfessionService} from 'src/app/services/confession.service';
   styleUrls: ['./new-confession.component.css']
 })
 export class NewConfessionComponent implements OnInit {
-  constructor(private confessionService: ConfessionService) {}
+  constructor(
+    private confessionService: ConfessionService,
+    private router: Router
+  ) {}
 
   confession: any = {};
 
@@ -23,6 +27,8 @@ export class NewConfessionComponent implements OnInit {
       .addConfessions(this.confession)
       .subscribe(success => {
         console.log('success', success);
+
+        this.router.navigate(['/confession/' + success._id]);
       });
   }
 }

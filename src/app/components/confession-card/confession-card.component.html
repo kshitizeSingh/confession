@@ -21,7 +21,9 @@
     </mdb-card-text>
     <hr />
     <div>
-      <img src="assets/like.jpg" class="like" />{{ confession.likes.length }}
+      <img src="assets/like.jpg" class="like" (click)="like(confession)" />{{
+        confession.likes.length
+      }}
     </div>
   </mdb-card-body>
 </mdb-card>
