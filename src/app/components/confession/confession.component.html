@@ -1,0 +1,34 @@
+<mdb-card>
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title class="cardtTitle">
+      <img src="assets/confessionicon.jpg" class="userIcon" />
+      <h4>{{ confession.user | titlecase }}</h4>
+    </mdb-card-title>
+    <hr />
+
+    <!--Text-->
+    <mdb-card-text>
+      {{ confession.text }}
+    </mdb-card-text>
+    <hr />
+    <div>
+      <img src="assets/like.jpg" class="like" />{{ confession.likes.length }}
+    </div>
+    <hr />
+    <div *ngFor="let comment of confession.comments" class="commentSection">
+      <div class="commentUserArea">
+        <img
+          src="https://robohash.org/{{ comment.user }}.png"
+          class="userCommentIcon"
+        />
+
+        <span>{{ comment.user | titlecase }}</span>
+        {{ comment.likes.length }}
+      </div>
+      {{ comment.comment }}
+      <!-- {{ comment | json }} -->
+    </div>
+  </mdb-card-body>
+</mdb-card>
+<!-- {{ confession | json }} -->

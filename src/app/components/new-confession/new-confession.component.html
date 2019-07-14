@@ -1,0 +1,13 @@
+<mdb-card class="card">
+  <mdb-card-body>
+    <input class="form-control" [(ngModel)]="confession.user" />
+    <textarea
+      class="summary-textarea"
+      placeholder="Confess"
+      [(ngModel)]="confession.text"
+    >
+    </textarea>
+    <hr />
+    <button (click)="addConfession()" class="save-button">Confess</button>
+  </mdb-card-body>
+</mdb-card>
