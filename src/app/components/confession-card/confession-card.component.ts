@@ -24,7 +24,7 @@ export class ConfessionCardComponent implements OnInit {
     console.log(confession);
     const likeRequest = {
       id: confession._id,
-      user: 'lucky'
+      user: localStorage.getItem('confessionKarneWaleKaNaam')
     };
     this.confessionService.like(likeRequest).subscribe(
       liked => {

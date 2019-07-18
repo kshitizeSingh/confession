@@ -28,4 +28,7 @@ export class ConfessionService {
   like(data) {
     return this.http.post(this.uri + '/like', data);
   }
+  getName() {
+    return this.http.get('https://uinames.com/api/?region=india');
+  }
 }

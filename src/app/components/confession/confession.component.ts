@@ -31,11 +31,14 @@ export class ConfessionComponent implements OnInit {
   like() {
     const likeRequest = {
       id: this.confessionId,
-      user: 'lucky'
+      user: localStorage.getItem('confessionKarneWaleKaNaam')
     };
-    this.confessionService
-      .like(likeRequest)
-      .subscribe(success => {}, error => {});
+    this.confessionService.like(likeRequest).subscribe(
+      success => {
+        this.confession.like.push(likeRequest.user);
+      },
+      error => {}
+    );
   }
 
   addComment() {
@@ -43,7 +46,7 @@ export class ConfessionComponent implements OnInit {
     const newCommentRequest = {
       id: this.confessionId,
       newComment: {
-        user: 'testUser',
+        user: localStorage.getItem('confessionKarneWaleKaNaam'),
         comment: this.newComment,
         date: new Date(),
         likes: []

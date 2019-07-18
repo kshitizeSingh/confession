@@ -17,7 +17,7 @@ export class NewConfessionComponent implements OnInit {
 
   ngOnInit() {
     this.confession.text = 'i am not in the mood to confess today';
-    this.confession.user = 'Bakchod Launda';
+    this.confession.user = localStorage.getItem('confessionKarneWaleKaNaam');
   }
 
   addConfession() {
